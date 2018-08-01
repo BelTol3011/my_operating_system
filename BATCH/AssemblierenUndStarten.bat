@@ -5,10 +5,10 @@ cls
 taskkill /im qemu-system-x86_64.exe
 echo Nasm Kompiliert ab Jetzt...
 echo -------------------------------------------------
-nasm kernal2.asm -o boot.bin -f bin
+nasm kernel2.asm -o boot.bin -f bin
 echo -------------------------------------------------
 echo Fertig mit compilieren!!!
-echo Lösche vorherige Datei
+echo Lï¿½sche vorherige Datei
 cd C:\Users\%USERNAME%\Desktop\"my Operating system"\qemu
 del boot.bin
 cd C:\Users\Bela\Desktop\my Operating system
@@ -16,7 +16,7 @@ echo Datei wird kopiert...
 copy boot.bin C:\Users\%USERNAME%\Desktop\"my Operating system"\qemu\
 echo Fertig!!
 cd C:\Users\%USERNAME%\Desktop\"my Operating system"\qemu
-set /p a="Enter dücken wenn zufrieden:"
+set /p a="Enter dï¿½cken wenn zufrieden:"
 echo qemu Startet!
 qemu-system-x86_64 boot.bin
 

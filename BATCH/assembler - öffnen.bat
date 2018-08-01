@@ -1,3 +1,3 @@
 @echo off
 cd ..
-kernal2.asm
+kernel2.asm

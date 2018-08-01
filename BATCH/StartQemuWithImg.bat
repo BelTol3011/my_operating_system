@@ -4,5 +4,5 @@ cd ..
 copy fertig.img C:\Users\%USERNAME%\Desktop\"my Operating system"\qemu
 cd C:\Users\%USERNAME%\Desktop\"my Operating system"\qemu
 echo qemu Startet!
-qemu-system-x86_64 fertig.img
+qemu-system-x86_64 boot.img
 
