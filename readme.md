@@ -1,16 +1,14 @@
-﻿Dateien und Ordner erklärung:
+﻿# Ein OS
 
-BATCH - Hier befinden sich die batch dateien zum kompilieren etc. (muss mann portieren)
+## Dateien und Ordner erklärung:
 
-qemu - Der qemu Emulator für Windows. Erklärung zur installation von qemu unter Linux, etc: https://www.qemu.org/download/ oder einfach Wine(Ist glaube ich das einfachste)
+BATCH/ - Hier befinden sich die batch dateien zum kompilieren etc. (muss mann portieren)
 
-kernal2.asm - Die Bootloader Assemblersourcecodedatei
+kernel2.asm - Die Bootloader Assemblersourcecodedatei
 
-nasm.exe - Nasm für Windows
+Makefile - Makefile für Linux, ausführen mit `make all`
 
-ndisasm.exe - Nasm decompiler für Windowsy(braucht man eigendlich nicht)
+## Abhängigkeiten  
 
--------------------------------
-
-Wine ist glaube ich immer noch das einfachste \(^-^)/
-  
+* nasm
+* qemu
