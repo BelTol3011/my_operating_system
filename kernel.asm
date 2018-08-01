@@ -1,29 +1,13 @@
 [bits 16]
 [ORG 0x7C00]
 
-;Eigentlicher code
+mov si, BOOTLOADERSTR
+call printstr
 
+mov si, BOOTLOADERSTR1
+call printstr
 
-
-
-MOV SI, BOOTLOADERSTR
-CALL printstr
-
-
-
-
-MOV SI, BOOTLOADERSTR1
-CALL printstr
-
-
-
-
-
-
-
-
-CALL Ende
-
+call Ende
 
 ;Definition
 BOOTLOADERSTR db 'Bootloader (C)Bela 2018, inspiriert vom Yotuber "F.E.C.".', 13 , 10 ,  'HINWEIS: Dieses Betriebsystem ist komplett sinnlos. Es macht rein GRANIX.',13 , 10 , 0
@@ -34,196 +18,174 @@ BOOTLOADERSTR4 db 13 , 10 ,0
 BOOTLOADERSTR5 db 'Die Shell startet jetzt:',13 , 10 ,0
 BOOTLOADERSTR6 db 13,10,'\(^-^)/', 0
 
-
 ;Print
-MOV AH,0x0e
-MOV AL,'H'
-INT 0x10
-
+mov ah,0x0e
+mov al,'H'
+int 0x10
 
 ;Setgraphicsmode:
-MOV AH, 0x00
-MOV AL, 0x13
-INT 10h
-
+mov ah, 0x00
+mov al, 0x13
+int 10h
 
 ;lesen:
-;MOV AH, 0
-;INT 016h
-;INT 0x10
+;mov ah, 0
+;int 016h
+;int 0x10
 ;lesenend:
 
 ;cleanscreen:
 ;XOR DX, DX
 ;XOR BH, BH
-;MOV AX, 200h
-;INT 10h
+;mov AX, 200h
+;int 10h
 ;cleanscreenend:
 
 
 Ende:
+    mov si,BOOTLOADERSTR2
+    call printstr
 
-MOV SI,BOOTLOADERSTR2
-CALL printstr
+    call functest
 
-CALL functest
+    mov si,BOOTLOADERSTR3
+    call printstr
 
-
-
-
-
-
-MOV SI,BOOTLOADERSTR3
-CALL printstr
-
-MOV SI,BOOTLOADERSTR5
-CALL printstr
+    mov si,BOOTLOADERSTR5
+    call printstr
 
 
 shellstart:
-CALL neu
-;CALL Up
-
-
-
-
+    call neu
+    ;call Up
 
 afterlesen:
-CALL lesen
-CALL lol
-CALL return
-CALL neu
-CALL afterlesen
-;CALL shellstart 
-
-
-
-
-
-
+    call lesen
+    call lol
+    call return
+    call neu
+    call afterlesen
+    ;call shellstart 
 
 ;-----------Funktionen------------
 Right:
-add dl, 1
-call SetCursor
-ret
-RETN
-
+    add dl, 1
+    call SetCursor
+    ret
+    retn
 
 Left:
-sub dl, 1
-call SetCursor
-ret
-RETN
+    sub dl, 1
+    call SetCursor
+    ret
+    retn
 
 
 Up:
-sub dh, 1
-call SetCursor
-ret
-RETN
+    sub dh, 1
+    call SetCursor
+    ret
+    retn
 
 
 Down:
-add dh, 1
-call SetCursor
-ret
-RETN
+    add dh, 1
+    call SetCursor
+    ret
+    retn
 
 
 SetCursor:
-mov ah, 02h
-mov bh, 00
-int 10h
-ret
+    mov ah, 02h
+    mov bh, 00
+    int 10h
+    ret
 
 
 
 functest:
-CALL return
-CALL lol
-CALL neu
-MOV SI,BOOTLOADERSTR4
-CALL printstr
-RET
-RETN
+    call return
+    call lol
+    call neu
+    mov si,BOOTLOADERSTR4
+    call printstr
+    ret
+    retn
 
 
 return:
-MOV AH,0x0e
-MOV AL,13
-INT 0x10
-MOV AL,10
-INT 0x10
-RET
-RETN
+    mov ah,0x0e
+    mov al,13
+    int 0x10
+    mov al,10
+    int 0x10
+    ret
+    retn
 
 
 lol:
-MOV SI,BOOTLOADERSTR6
-CALL printstr
-RET
-RETN
+    mov si,BOOTLOADERSTR6
+    call printstr
+    ret
+    retn
 
 
 neu:
-MOV AH,0x0e
-MOV AL,'>'
-INT 0x10
-INT 0x10
-INT 0x10
-RET
-RETN
+    mov ah,0x0e
+    mov al,'>'
+    int 0x10
+    int 0x10
+    int 0x10
+    ret
+    retn
 
 
 lesen:
-mov AH, 0h   ;get character from keyboard
-int 0x16     ;and store it in AL
-; CMP AL,94
-; JE lesen
-; CMP AL,95
-; JE lesen
-mov AH,0EH  ;Display a character in AL
-int 0x10    ;aka, echo it
-CMP AL,13
-JNE lesen
+    mov ah, 0h   ;get character from keyboard
+    int 0x16     ;and store it in al
+    ; cmp al,94
+    ; je lesen
+    ; cmp al,95
+    ; je lesen
+    mov ah,0EH  ;Display a character in al
+    int 0x10    ;aka, echo it
+    cmp al,13
+    jne lesen
 
-RET
-RETN
+    ret
+    retn
 
 printstr:
-CALL next_character1
-RET
-RETN
-PrintCharacter1:
-MOV AH, 0x0E
-INT 0x10
-next_character1:
-MOV AL, [SI]
-INC SI
-CMP AL, 0
-JNE PrintCharacter1
-JE returnfunk
-returnfunk:
-RET
-RETN
+    call next_character1
+    ret
+    retn
 
+PrintCharacter1:
+    mov ah, 0x0E
+    int 0x10
+
+next_character1:
+    mov al, [si]
+    inc si
+    cmp al, 0
+    jne PrintCharacter1
+    je returnfunk
+
+returnfunk:
+    ret
+    retn
 
 setcursor:
-CursorCol  db 0
-CursorRow  db 0
+    CursorCol  db 0
+    CursorRow  db 0
 
-mov  dl, CursorCol
-mov  dh, CursorRow
-mov  bh, 0
-mov  ah, 02h
-int  10h
-RET
-RETN
-
-
-
-
+    mov  dl, CursorCol
+    mov  dh, CursorRow
+    mov  bh, 0
+    mov  ah, 02h
+    int  10h
+    ret
+    retn
 
 TIMES 510 - ($ - $$) db 0
 DW 0xAA55
