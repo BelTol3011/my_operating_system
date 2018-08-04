@@ -21,15 +21,15 @@ cls
 color b
 
 echo Loesche alte boot.bin Datei, falls vorhanden...
-del ..\Output\boot.bin
+del ..\..\Output\boot.bin
 echo Fertig.
 
-echo Erstelle Verzeichnis ..\Output\, falls noch nicht vorhanden...
-mkdir ..\Output\
+echo Erstelle Verzeichnis ..\..\Output\, falls noch nicht vorhanden...
+mkdir ..\..\Output\
 echo Fertig.
 
 echo Kompiliere mit NASM...
-"C:\Program Files\NASM\nasm.exe" ..\kernel.asm -o ..\Output\boot.bin -f bin
+"C:\Program Files\NASM\nasm.exe" ..\..\kernel.asm -o ..\..\Output\boot.bin -f bin
 echo Fertig.
 
 :: Das Starten
@@ -52,5 +52,5 @@ ping -n 1 127.0.0.1 >nul
 echo zwei
 ping -n 1 127.0.0.1 >nul
 echo eins
-"C:\Program Files\qemu\qemu-system-x86_64" ..\Output\boot.bin
+"C:\Program Files\qemu\qemu-system-x86_64" ..\..\Output\boot.bin
 
