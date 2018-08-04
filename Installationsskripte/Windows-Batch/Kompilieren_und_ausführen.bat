@@ -20,8 +20,8 @@ cls
 
 color b
 
-echo Loesche alte boot.bin Datei, falls vorhanden...
-del ..\..\Output\boot.bin
+echo Loesche alte Boot.bin Datei, falls vorhanden...
+del ..\..\Output\Boot.bin
 echo Fertig.
 
 echo Erstelle Verzeichnis ..\..\Output\, falls noch nicht vorhanden...
@@ -29,12 +29,12 @@ mkdir ..\..\Output\
 echo Fertig.
 
 echo Kompiliere mit NASM...
-"C:\Program Files\NASM\nasm.exe" ..\..\kernel.asm -o ..\..\Output\boot.bin -f bin
+"C:\Program Files\NASM\nasm.exe" ..\..\kernel.asm -o ..\..\Output\Boot.bin -f bin
 echo Fertig.
 
 :: Das Starten
 
-echo Soll die boot.bin mit qemu ausgefuehrt werden?
+echo Soll die Boot.bin mit qemu ausgefuehrt werden?
 
 pause
 
@@ -46,11 +46,14 @@ echo Beende qemu-system-x86_64.exe-Instanz, falls ausgeführt...
 taskkill /im qemu-system-x86_64.exe
 echo Fertig.
 
-echo Die boot.bin wird mit qemu ausgefuehrt.
+echo Die Boot.bin wird mit qemu ausgefuehrt.
 echo Start in drei...
 ping -n 1 127.0.0.1 >nul
 echo zwei
 ping -n 1 127.0.0.1 >nul
 echo eins
-"C:\Program Files\qemu\qemu-system-x86_64" ..\..\Output\boot.bin
+"C:\Program Files\qemu\qemu-system-x86_64" ..\..\Output\Boot.bin
+
+echo Pausieren, um Ausgaben anzusehen...
+pause
 
