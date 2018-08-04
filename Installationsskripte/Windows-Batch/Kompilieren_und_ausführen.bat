@@ -8,7 +8,7 @@ color c
 
 echo Hinweis/Achtung!
 echo.
-echo Diese Batch setzt voraus, dass NASM und qemu in der 64bit-Version bzw. im Ordner "C:\Program Files\" installiert wurden.
+echo Diese Batch setzt voraus, dass NASM und qemu in der 64bit-Version in ihrem Standardordner "C:\Program Files\" installiert wurden.
 echo Ist dies nicht der Fall, muss in den Pfadangaben in der Batch jeweils das "C:\Program Files\" durch "C:\Program Files (x86)\" ersetzt werden,
 echo beziehungsweise der Installationspfad angegeben werden.
 
@@ -34,7 +34,7 @@ echo Fertig.
 
 :: Das Starten
 
-echo Soll boot.bin mit qemu ausgefuehrt werden?
+echo Soll die boot.bin mit qemu ausgefuehrt werden?
 
 pause
 
