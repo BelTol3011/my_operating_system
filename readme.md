@@ -1,14 +1,15 @@
 ﻿# Ein OS
 
-## Dateien und Ordner erklärung:
+## Dateien und Ordner:
 
-BATCH/ - Hier befinden sich die batch dateien zum kompilieren etc. (muss mann portieren)
+- /Installtionsskripte/Windows-Batch/ - Batch-Skripte zum Kompilieren und Ausführen
+- /Installationsskripte/Bash/
 
-kernel2.asm - Die Bootloader Assemblersourcecodedatei
+kernel.asm - Assemblersourcecodedatei
 
-Makefile - Makefile für Linux, ausführen mit `make all`
+Makefile - Makefile für Linux, ausführen mit ``make all``
 
-## Abhängigkeiten  
+## Dependencies
 
-* nasm
-* qemu
+* NASM (https://nasm.us/)
+* qemu (https://www.qemu.org/)
