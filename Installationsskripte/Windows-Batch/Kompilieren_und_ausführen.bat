@@ -53,3 +53,4 @@ echo zwei
 ping -n 1 127.0.0.1 >nul
 echo eins
 "C:\Program Files\qemu\qemu-system-x86_64" ..\Output\boot.bin
+
