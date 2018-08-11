@@ -16,7 +16,7 @@ echo Datei wird kopiert...
 copy boot.bin C:\Users\%USERNAME%\Desktop\"my Operating system"\qemu\
 echo Fertig!!
 cd C:\Users\%USERNAME%\Desktop\"my Operating system"\qemu
-set /p a="Enter d�cken wenn zufrieden:"
+set /p a="Enter dücken wenn zufrieden:"
 echo qemu Startet!
 qemu-system-x86_64 boot.bin
 
