@@ -10,7 +10,7 @@ call printstr
 call Ende
 
 ;Definition
-BOOTLOADERSTR db 'Bootloader (C)Bela 2018, inspiriert vom Yotuber "F.E.C.".', 13 , 10 ,  'HINWEIS: Dieses Betriebsystem ist komplett sinnlos. Es macht rein GRANIX.',13 , 10 , 0
+BOOTLOADERSTR db 'Bootloader (C)Bela 2018, inspiriert vom Yotuber "F.E.C.".', 13 , 10 ,  'HINWEIS: Dieses Betriebsystem ist komplett sinnlos. Es macht rein GARNIX.',13 , 10 , 0
 BOOTLOADERSTR1 db 'Version: 3.1', 13 , 10 , 0
 BOOTLOADERSTR2 db 'Teste alle Funktionen...', 13 , 10 ,0
 BOOTLOADERSTR3 db 'Fertig!', 13 , 10, 13 , 10 ,0
