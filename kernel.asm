@@ -16,7 +16,7 @@ BOOTLOADERSTR2 db 'Teste alle Funktionen...', 13 , 10 ,0
 BOOTLOADERSTR3 db 'Fertig!', 13 , 10, 13 , 10 ,0
 BOOTLOADERSTR4 db 13 , 10 ,0
 BOOTLOADERSTR5 db 'Die Shell startet jetzt:',13 , 10 ,0
-BOOTLOADERSTR6 db 13,10,'\(^-^)/', 0
+BOOTLOADERSTR6 db 13,10,'/(^-^)\', 0
 
 ;Print
 mov ah,0x0e
