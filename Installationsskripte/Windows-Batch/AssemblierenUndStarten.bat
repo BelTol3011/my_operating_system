@@ -1,4 +1,4 @@
-cd C:\Users\%USERNAME%\Desktop\my Operating system
+﻿cd C:\Users\%USERNAME%\Desktop\my Operating system
 color a
 cls
 @echo off
@@ -8,7 +8,7 @@ echo -------------------------------------------------
 nasm kernel2.asm -o boot.bin -f bin
 echo -------------------------------------------------
 echo Fertig mit compilieren!!!
-echo L�sche vorherige Datei
+echo Lösche vorherige Datei
 cd C:\Users\%USERNAME%\Desktop\"my Operating system"\qemu
 del boot.bin
 cd C:\Users\Bela\Desktop\my Operating system
