@@ -1,6 +1,8 @@
 [bits 16]
 [ORG 0x7C00]
 
+
+
 mov si, BOOTLOADERSTR
 call printstr
 
